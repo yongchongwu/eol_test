@@ -1,0 +1,27 @@
+@import "~antd/dist/antd.less";
+
+.button-variant-danger(@color; @background; @border) {
+  .button-color(@color; @background; @border);
+  &:hover,
+  &:focus {
+    .button-color(@color; ~`colorPalette("@{background}", 5)`; ~`colorPalette("@{background}", 5)`);
+  }
+
+  &:active,
+  &.active {
+    .button-color(@color; ~`colorPalette("@{background}", 7)`; ~`colorPalette("@{background}", 7)`);
+  }
+
+  .button-disabled();
+}
+
+.@{btn-prefix-cls} {
+  &-danger&-clicked:after {
+    border-color: @error-color;
+  }
+}
+
+@primary-color: #1DA57A;
+@btn-danger-bg: @error-color;
+@btn-danger-border: @error-color;
+@btn-danger-color: #fff;

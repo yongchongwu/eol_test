@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>EOL 海外人才数据库</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="I-Future Data Technology Inc.">
+    <link rel="shortcut icon" type="image/png" href="./../static/img/logo.png">
+    <script>
+        var SEARCH_URL = "{{results['search_url']}}";
+    </script>
+    <script src="https://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  	<script src="{{results['url_root']}}static/chart.js/dist/Chart.js"></script>
+  	<script>
+	   $(document).ready(function() {
+		    var	ctx = document.getElementById("myChart");
+		    var myChart = new Chart(ctx, {
+		        type: 'bar',
+		        data: {
+		            labels: ["一区", "二区", "三区", "四区", "未知"],
+		            datasets: [{
+		                label: '论文分区',
+		                data: ['{{results["zone_1"]}}', '{{results["zone_2"]}}', '{{results["zone_3"]}}', '{{results["zone_4"]}}', '{{results["zone_others"]}}'],
+		                backgroundColor: [
+		                    'rgba(255, 99, 132, 0.2)',
+		                    'rgba(54, 162, 235, 0.2)',
+		                    'rgba(255, 206, 86, 0.2)',
+		                    'rgba(75, 192, 192, 0.2)',
+		                    'rgba(153, 102, 255, 0.2)'
+		                ],
+		                borderColor: [
+		                    'rgba(255,99,132,1)',
+		                    'rgba(54, 162, 235, 1)',
+		                    'rgba(255, 206, 86, 1)',
+		                    'rgba(75, 192, 192, 1)',
+		                    'rgba(153, 102, 255, 1)'
+		                ],
+		                borderWidth: 1
+		            }]
+		        },
+		        options: {
+		            scales: {
+		                yAxes: [{
+		                    ticks: {
+		                        beginAtZero: true
+		                    }
+		                }]
+		            },
+		            legend: {
+		                labels: {
+		                    fontSize: 40
+		                }
+		            }
+		        }
+		    });
+	    });
+	</script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/app.css') }}">
+</head>
+<body>
+	<!--导航栏-->
+	<header>
+	    <div class="logos">
+	        <img src="{{ url_for('static', filename='bootstrap/img/logo.png') }}" width=auto height="35" alt="I-Future Logo"/>
+	        <img src="{{ url_for('static', filename='bootstrap/img/academicBridgelogo.png') }}" width=auto height="35" alt="academicBridge"/>
+	        <img src="{{ url_for('static', filename='bootstrap/img/EOLlogo.png') }}" width=auto height="35" alt="EOLlogo"/>
+	    </div>
+	    <nav>
+	        <ul>
+	            <li><a href="">搜索</a></li>
+	            <li><a href="">账号</a></li>
+	        </ul>
+	    </nav>
+	</header>
+	<!--内容-->
+	<div class="container-fluid">
+		<div id="exTab3" class="container">
+			<!--基本信息-->
+			<div class="basic col-lg-12">
+		        <!--头像-->
+		        <div class="img col-lg-3 col-md-12">
+			    	<!-- photo -->
+				    {% if results['photo'] %}
+				        <img id="photo" src="{{ results['photo']}}" alt="头像" width="250px" height="300px"/>
+				    {% else %}
+				        <img id="photo" src="{{results['url_root']}}static/img/no.jpg" alt="头像" width="250px" height="300px"/>
+				    {% endif %}
+				    <!-- description -->
+				</div>
+				<div class="col-lg-9 col-md-12">
+					<ul class="col-lg-7 col-md-6">
+			        	<li>
+			        		<span class="bold">姓名：</span>
+			        		<a id="name" href="{{ results['url'] }}" target="_blank">{{ results['name'] }}</a>
+			        	</li>
+			        	<li class="hidden">
+			        		<span>性别：</span>
+			        	</li>
+			        	<li>
+			                <span class="bold">电子邮箱：</span>
+			                {% if results['email'] %}
+			                    <a href="mailto:{{ results['email'] }}">{{ results['email'] }}</a>
+			                {% else %}
+			                    	未知
+			                {% endif %}
+			            </li>
+			            <li>
+			                <span class="bold">海外工作、学习经历：</span>
+			                {% if results['experience_linkedin'] %}
+			            		有
+			                {% else %}
+			                	无
+			                {% endif %}
+			            </li>
+			            <li class="hidden">
+			                <span class="bold">是否有博士后经历：</span>
+			            </li>
+			            <li>
+			                <span class="bold">个人主页：</span>
+			                {% if results['url'] or results['url_linkedin'] %}
+			            		有
+			                {% else %}
+			                	无
+			                {% endif %}
+			            </li>
+			            <li>
+			                <span class="bold">学科领域：</span>
+			                {% if results['eol1_chinese']==None and results['eol2_chinese']==None and results['eol3_chinese']==None %}
+			                    	未知
+			                {% else %}
+			                    {{ results['eol1_chinese']|default('',true) }} {{ results['eol2_chinese']|default('',true) }} {{ results['eol3_chinese']|default('',true) }}
+			                {% endif %}
+			            </li>
+			    	</ul>
+					<ul class="col-lg-5 col-md-6">
+			    		<li>
+			                <span class="bold">英文名：</span>
+			                {{ results['name'] }}
+			            </li>
+			            <li class="hidden">
+			                <span class="bold">生源地：</span>
+			            </li>
+			            <li class="hidden">
+			                <span class="bold">出生日期：</span>
+			            </li>
+			            <li class="hidden">
+			                <span class="bold">国籍：</span>
+			            </li>
+			            <li>
+			                <span class="bold">职称：</span>
+			                {{ results['title_chinese']|default('未知',true) }}
+			            </li>
+			            <li>
+			                <span class="bold">地点：</span>
+			                {{ results['country_chinese']|default('',true) }} {{ results['state_chinese']|default('',true) }}
+			            </li>
+			        </ul>
+			        <!--舍弃的已有字段-->
+			        <ul style="display: none" class="give_up">
+			        	<li>
+			                <span class="bold">大学：</span>
+			                {{ results['university']|default('',true) }} {{ results['university_chinese']|default('',true) }}
+			           </li>
+			            <li>
+			                <span class="bold">学历：</span>
+			                {{ results['edu_chinese']|default('其他',true) }}
+			            </li>
+			            
+			            <li>
+			                <span class="bold">院系：</span>
+			                {{ results['department_chinese']|default('未知',true) }}
+			            </li>
+			            <li>
+			                <span class="bold">电话：</span>
+			                {{ results['phone']|default('未知',true) }}
+			            </li>
+			            <li>
+			                <span class="bold">年龄：</span>
+			                {% if results['age'] != '120' and results['age'] %}
+			                    {{ results['age'] }}
+			                {% else %}
+			                    	未知
+			                {% endif %}
+			            </li>
+			        </ul>
+		        </div>
+			</div>
+			<!--教育经历-->
+			<article class="education col-lg-12">
+                <h6>教育经历</h6>
+                {% if results['education_linkedin_isList'] and results['education_linkedin'] %}
+                    <table class="table">
+                        <thead class="thead-light">
+	                        <tr>
+	                            <th class="w-25">时间</th>
+	                            <th>学历</th>
+	                            <th>学校</th>
+	                            <th>研究方向</th>
+	                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for education in results['education_linkedin'] %}
+                            <tr>
+                                <td>{{ education['start'] }}-{{ education['end'] }}({{ education['lenth'] }}年)</td>
+                                <td>{{ education['degree'] }}</td>
+                                <td>{{ education['university'] }}</td>
+                                <td>{{ education['major'] }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                	<p>&nbsp;&nbsp;暂无教育经历</p>
+                    <p>{{ results['education_linkedin']|default('',true) }}</p>
+                {% endif %}
+            </article>
+            <!--工作经历-->
+			<article class="work col-lg-12">
+                <h6>工作经历</h6>
+                {% if results['experience_linkedin_isList'] and results['experience_linkedin'] %}
+                    <table class="table col-lg-12">
+                        <thead class="thead-light">
+                        <tr>
+                            <th class="w-25">起止时间</th>
+                            <th>单位</th>
+                            <th>职务</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for experience in results['experience_linkedin'] %}
+                            <tr>
+                                <td>{{ experience['start'] }}-{{ experience['end'] }}({{ experience['lenth'] }}年)</td>
+                                <td>{{ experience['company'] }}</td>
+                                <td>{{ experience['position'] }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                	<p>&nbsp;&nbsp;暂无工作经历</p>
+                    <p>{{ results['experience_linkedin']|default('',true) }}</p>
+                {% endif %}
+            </article>
+            <!--论文与出版物-->
+            <div class="paper col-lg-12">
+            	<h6>论文与出版物</h6>
+				<canvas id="myChart"></canvas>
+			    <article>
+	                {% if results['publication_isList'] and results['publication'] %}
+	                    {% for publication in results['publication'] %}
+	                        <p>{{ publication }}</p>
+	                    {% endfor %}
+	                {% else %}
+	                	<p>&nbsp;&nbsp;暂无论文</p>
+	                    <p>{{ results['publication']|default('',true) }}</p>
+	                {% endif %}
+	            </article>
+            </div>
+            <!--获奖情况-->
+            <article class="hidden reward col-lg-12">
+                <h6>获奖情况</h6>
+                {% if results['experience_linkedin_isList'] and results['experience_linkedin'] %}
+                    <ul>
+                        {% for experience in results['experience_linkedin'] %}
+                            <li><span>•</span>获奖情况内容</li>
+                        {% endfor %}
+                   </ul>
+                {% else %}
+                	<p>&nbsp;&nbsp;暂无获奖情况</p>
+                    <p>{{ results['experience_linkedin']|default('',true) }}</p>
+                {% endif %}
+            </article>
+            <!--简历附件-->
+			<article class="hidden resume col-lg-12">
+                <h6>简历附件</h6>
+                {% if results['experience_linkedin_isList'] and results['experience_linkedin'] %}
+                    <table class="table col-lg-12">
+                        <thead class="thead-light">
+                        <tr>
+                            <th class="w-25">附件名称</th>
+                            <th>上传时间</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for experience in results['experience_linkedin'] %}
+                            <tr>
+                            	<td>{{ experience['company'] }}</td>
+                                <td>{{ experience['start'] }}-{{ experience['end'] }}({{ experience['lenth'] }}年)</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                	<p>&nbsp;&nbsp;暂无附件简历</p>
+                    <p>{{ results['experience_linkedin']|default('',true) }}</p>
+                {% endif %}
+            </article>
+            <!--个人主页及其他情况-->
+		    <article class="website col-lg-12">
+		    	<h6>个人主页及其他情况</h6>
+	            {% if results['url']%}
+            		<a href="{{ results['url']|default('',true) }}" target="_blank">{{ results['url']|default('',true) }}</a> 
+                {% else %}
+                	<a href="{{ results['url_linkedin']|default('暂无',true) }}" target="_blank">{{ results['url_linkedin']|default('暂无',true) }}</a>
+                {% endif %}
+	        </article>
+	        <!--页脚-->
+			<footer class="col-lg-12">
+			    <p>海外人才库 by <a href="http://ifuture.ai/" target="_blank">I-Future Data Technology Inc.</a>, 2017 </p>
+			</footer>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,191 @@
+@charset "utf-8";
+
+/*--Promote Visual by xiaoxiong 20160906--*/
+.visual-wrap{ width: 100%; height: 100%; min-height: 955px; background: #010a31; color: #fff; font-family: "苹方";}
+.promote-content{position: relative; width: 1280px; height: 720px; margin: 0 auto; background: url(../images/visual-bg.jpg?20160906) no-repeat #010a31;}
+.kpi-count{width: 380px; height: 150px; position: absolute; top: 0; left: 0;}
+.uv-count{width: 380px; height: 150px; position: absolute; top: 0; right: 0; text-align: right;}
+.kpi-goods{ color: #3c74e6; font-size: 16px; font-weight: 700;}
+.kpi-price{ color: #ff7700; font-size: 22px; font-weight: 700;}
+.kpi-count .kpi-item{float: left; width: 190px; height: 65px; text-indent: 20px; padding-top: 10px;}
+.uv-count .kpi-item{float: left; width: 170px; height: 65px; padding-right: 20px; padding-top: 10px;}
+.today-sales{ position: absolute; top: 0; left: 508px; width: 270px; height: 35px; line-height: 35px; font-size: 22px; text-align: center;}
+.sales-number{position: absolute; top: 53px; left: 437px; width: 412px; height: 50px; line-height: 50px;text-align: center; font-size: 52px; font-family: Impact;}
+.sales-date{position: absolute; top: 120px; left: 528px; width: 213px; height: 26px; color: #0196ff; text-align: center; font-size: 16px;}
+.terminal-box{position: absolute; top: 174px; left: 0; width: 340px; height: 310px;}
+.user-box{position: absolute; top: 174px; right: 0; width: 330px; height: 310px;}
+.terminal-title{ font-size: 18px; padding-left: 10px;}
+.user-title{ font-size: 18px; padding-right: 10px; text-align: right;}
+.user-wrap{ padding: 10px 25px; position: relative}
+.old-user{ width: 221px; height: 83px; margin-bottom: 19px; background: url(../images/old-user-mark.png?20160907) no-repeat;}
+.new-user{ width: 221px; height: 83px; background: url(../images/new-user-mark.png?20160907) no-repeat;}
+.progress-bars{ margin-bottom: 15px;}
+.user-info .percentum{width: 73px; text-align: center; font-size: 22px; font-family: Impact; padding-top: 13px;}
+.user-info .classify{ color: #050d2d; text-align: center; font-size: 16px; margin-top: -7px;}
+.old-user .deal-sum{ text-align: right; padding-top: 10px;}
+.old-user .deal-sum .deal-txt{ color: #637fff; font-size: 16px; padding-right: 10px;}
+.old-user .deal-sum .deal-price{ color: #fff; font-size: 20px; padding-right: 20px;}
+.new-user .deal-sum{ text-align: left; padding-top: 20px;}
+.new-user .deal-sum .deal-txt{ color: #637fff; font-size: 16px; padding-left: 24px;}
+.new-user .deal-sum .deal-price{ color: #fff; font-size: 20px; padding-left: 24px;}
+.new-user .user-info .percentum{ padding-top: 20px;}
+.hot-brand-wrap{position: absolute; left: 0; bottom: 0; width: 410px; height: 223px; z-index: 1;}
+.hot-goods-wrap{position: absolute; right: 0; bottom: 0; width: 410px; height: 223px; z-index: 1;}
+/*add by zhangpang*/
+.hot-state-wrap{position: absolute; left: 0; bottom: 0; width: 310px; height: 223px; z-index: 1;}
+.hot-university-wrap{position: absolute; right: 0; top: 0; width: 310px; height: 223px; z-index: 1;}
+.hot-tag-wrap{position: absolute; right: 0; bottom: 0; width: 310px; height: 223px; z-index: 1;}
+
+.sale-title{ height: 28px; line-height: 28px; font-size: 18px; padding-left: 10px;}
+.hot-goods-wrap .sale-title{ text-align: right; padding-right: 10px;}
+.sale-row{ color: #3366cc; height: 40px; line-height: 40px; font-size: 15px; font-weight: bold;}
+.list-first{ width: 66px; text-align: center;}
+.list-second{text-align: left;}
+.list-third{ padding-right: 15px;}
+.sale-data-list{ 
+  position: absolute;
+  height: 150px; 
+  width: 100%;
+  opacity:0;
+  filter:alpha(opacity=0);
+}
+.sale-data-list.hide{
+  opacity: 0;
+  filter:alpha(opacity=0);
+  transition: opacity 0.2s linear;
+}
+.sale-data-list.show{
+  opacity: 1;
+  filter:alpha(opacity=1);
+  transition: opacity 0.6s linear;
+}
+.sale-data-list ul li{ color: #99ccff; height: 30px; line-height: 30px; font-size: 15px;}
+.map-wrap{position: absolute; top: 150px; left: 320px; width: 620px; height: 458px; z-index: 1;}
+.map-info{ width: 620px; height: 462px; background: url(../images/map-bg.jpg) no-repeat;}
+.peo-wrap .peo-mark{ display: block; width: 277px; height: 61px; background: url(../images/peo-bg.png) no-repeat #ff7700; background-size: 0 61px;}
+
+
+/*-- Number Light --*/
+.sales-number{
+  -webkit-animation: txt-light 1.5s ease-in-out infinite alternate;
+  -moz-animation: txt-light 1.5s ease-in-out infinite alternate;
+  animation: txt-light 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes txt-light {
+  from {
+    text-shadow: 2px 0px 5px #002aff,
+    0 2px 5px #002aff;
+  }
+  to {
+    text-shadow: 0 -2px 5px #002aff,
+    -2px 0 5px #002aff;
+
+  }
+}
+
+@-webkit-keyframes txt-light {
+  from {
+    text-shadow: 2px 0px 5px #002aff,
+                 0 2px 5px #002aff;
+  }
+  to {
+    text-shadow: 0 -2px 5px #002aff,
+                 -2px 0 5px #002aff;
+
+  }
+}
+
+@-moz-keyframes txt-light {
+  from {
+    text-shadow: 2px 0px 5px #002aff,
+    0 2px 5px #002aff;
+  }
+  to {
+    text-shadow: 0 -2px 5px #002aff,
+    -2px 0 5px #002aff;
+
+  }
+}
+
+.terminal-wrap{
+  position: relative;
+}
+
+/*add by zhangpang*/
+.data-professor{
+  position: absolute;
+  top: 213px;
+  left: 221px;
+}
+.data-xizhuren{
+  position: absolute;
+  top: 25px;
+  left: 120px;
+}
+.data-lecturer{
+  position: absolute;
+  top: 60px;
+  left: 10px;
+}
+
+
+.data-andriod{
+  position: absolute;
+  top: 24px;
+  left: 15px;
+}
+
+.data-pc{
+  position: absolute;
+  top: 24px;
+  left: 221px;
+}
+
+.data-phone{
+  position: absolute;
+  top: 112px;
+  left: 248px;
+}
+
+.data-iphone{
+  position: absolute;
+  top: 213px;
+  left: 15px;
+}
+
+.data-wx{
+  position: absolute;
+  top: 213px;
+  left: 221px;
+}
+
+.data-number{
+  font-size: 22px;
+  font-family: Impact;
+}
+
+.data-price{
+  font-size: 13px;
+  margin-top: -3px;
+}
+
+.blue-line{
+  border: 1px solid #637fff;
+  border-bottom: none;
+  width: 275px;
+  height: 8px;
+  position: absolute;
+  top: 100px;
+  left: 24px;
+}
+
+.yellow-line{
+  border: 1px solid #ff7700;
+  border-top: none;
+  width: 275px;
+  height: 8px;
+  position: absolute;
+  bottom: 99px;
+  right: 29px;
+}

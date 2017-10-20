@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="shortcut icon" type="image/png" href="./../static/img/logo.png">
+    <script type="text/javascript" src="{{ url_for('static', filename='bootstrap/js/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/md5.min.js') }}"></script>
+    <style type="text/css">
+        body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, 
+        input, textarea,p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, 
+        footer, header, hgroup,menu, nav, section {
+            margin: 0;
+            padding: 0;
+        }
+        :root {
+			--lightGreen: #E2F8F7;
+			--logoGreen: #48c1bc;
+			--offWhite: #fdfdfd;
+			--lightGrey: #949494;
+			--darkGrey: #404040;
+		}
+        body {
+            font-family: "MicrosoftYaHei", "Microsoft YaHei", Helvetica, Arial, sans-serif !important;
+            color: #333 !important;
+            font-size: inherit !important;
+        }
+        ul {
+            list-style: none;
+        }
+        a, a:hover, a:focus {
+            text-decoration: none;
+        }
+        a:active, a:hover {
+            outline: 0;
+        }
+        /* FOOTER */
+        footer {
+            color: var(--lightGrey);
+            margin: 20px auto !important;
+            text-align: center;
+        }
+        footer a {
+            color: #0275d8;
+        }
+        footer a:hover {
+            color: rgb(1,76,140);
+        }
+    </style>
+</head>
+<body>
+<div id="reactEntry"></div>
+<script type="text/javascript" src="{{ url_for('static', filename='js/bundle.js') }}"></script>
+<footer>
+    <p>海外人才库 by <a href="http://www.ifuture.ai/" target="_blank">I-Future Data Technology Inc.</a>, 2017 </p>
+</footer>
+</body>
+</html>

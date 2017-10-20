@@ -1,0 +1,8 @@
+{% extends "common/map_base.html" %}  {# common/page_base.html extends layout.html #}
+
+{% block content %}
+{% for r in rlist %}
+{{r['un']}},{{r['uc']}},{{r['r'].json()['result']['location']['lng']}},{{r['r'].json()['result']['location']['lat']}}<br/>
+{% endfor %}
+
+{% endblock %}

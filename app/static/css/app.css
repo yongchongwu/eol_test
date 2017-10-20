@@ -1,0 +1,192 @@
+/**** element styles ****/
+hr { border-color: #cccccc; margin: 0px; }
+/**** header, main and footer divs ****/
+.header-title { font-size: 30px; }
+/**** class-based style modifiers ****/
+.no-margins { margin: 0px; }
+.with-margins { margin: 10px; }
+.col-centered { float: none; margin: 0 auto; }
+/* new CSS */
+:root {
+	--lightGreen: #E2F8F7;
+	--logoGreen: #48c1bc;
+	--offWhite: #fdfdfd;
+	--lightGrey: #949494;
+	--darkGrey: #404040;
+}
+a, a:hover {
+	text-decoration: none;
+}
+ul {
+	list-style: none;
+}
+body {
+	font-family: "MicrosoftYaHei", "Microsoft YaHei", Helvetica, Arial, sans-serif;
+	color: var(--darkGrey);
+}
+header {
+	height: 60px;
+	width: 100%;
+}
+nav {
+	display: none;
+	float: right;
+	margin-top: 2px;
+	margin-right: 2%;
+}
+nav li {
+	display: inline-block;
+	font-size: 16px;
+	padding: 0 16px;
+}
+nav a {
+	color: var(--logoGreen);
+}
+nav li a:hover {
+	color: var(--darkGrey);
+}
+footer{
+	color: var(--lightGrey);
+	padding-top: 4%;
+	text-align: center;
+}
+/**********************************
+NAVIGATION:NO SEARCH BAR
+***********************************/
+#logo {
+	float: left;
+	padding: 8px 0 8px 4%;
+}
+/*导航栏*/
+header img:nth-child(1) {
+	margin-left: 50px;
+}
+/*公共部分*/
+.container {
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+/*当屏幕宽度大的时候调整内边距*/
+@media (min-width: 992px){
+	.container {
+	    padding: 0 50px;
+	}
+}
+/*每个模块的盒子浮动*/
+div.basic,
+article.education,
+article.work,
+div.paper,
+article.reward,
+article.resume,
+article.website {
+	float: left;
+}
+/*标题*/
+h6 {
+	margin: 30px 0;
+	color: black;
+}
+/*字体颜色*/
+.basic ul li,.basic ul li a,
+.education,.work,.paper,.website a {
+	color: gray;
+}
+/*个人主页链接*/
+.website a {
+	text-decoration: none;
+}
+/*基本信息*/
+div.basic {
+	margin-top: 120px;
+}
+/*里面小盒子*/
+.basic div,.basic ul,.basic img {
+	margin: 0;
+	padding: 0;
+	float: right;
+	position: relative;
+}
+.basic div.img,.basic ul,.basic img {
+	height: 250px;
+}
+.basic ul {
+	float: left;
+}
+/*当屏幕宽度很小的时候改变基本信息样式*/
+@media (max-width: 768px){
+	.basic ul {
+		min-width: 400px;
+	}
+}
+/*图片*/
+.basic img {
+	height: 180px;
+	width: 160px;
+	position: absolute;
+	left: 15%;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+}
+/*每一行*/
+.basic ul li {
+	height: 35px;
+	line-height: 35px;
+}
+/*标题和姓名*/
+.basic ul li span,
+.basic ul li #name {
+	color: black;
+}
+/*姓名*/
+.basic ul li #name {
+	font-size: 18px;
+	font-weight: 500;
+}
+/*教育经历、工作经历、简历附件表格*/
+.education table,
+.work table,
+.resume table {
+	margin: 0;
+	font-size: 15px;
+	background-color: rgb(255,255,255);
+}
+/*表头*/
+.education thead,
+.work thead,
+.resume thead {
+	color: midnightblue;
+	background-color: rgb(245,245,245);
+}
+/*表体*/
+.education tbody,
+.work tbody
+.resume tbody {
+	color: gray;
+}
+/*表每个单元*/
+.education td,.education th,
+.work td,.work th,
+.resume td,.resume th {
+	border: 1px gainsboro solid;
+}
+/*论文与出版物*/
+.paper p {
+	margin-top: 1rem;
+}
+/*获奖情况*/
+.reward {
+	color: black;
+	font-size: 16px;
+}
+/*页脚*/
+footer {
+	float: left;
+}
+/*隐藏后台没有的字段*/
+.hidden {
+	display: none;
+}

@@ -1,0 +1,472 @@
+@import '~searchkit/release/theme.css';
+.app {
+    background: #fdfdfd;
+    font-size:16px;
+}
+.app .sk-top-bar {
+    position: relative;
+    margin: 0 auto;
+    min-width: 600px;
+    background: #e2f8f7;
+    border: 1px solid #e2f8f7;
+    box-shadow: none;
+}
+.app .sk-top-bar__content {
+    display: block;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 1170px;
+}
+.app .topbar {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+.app .topbar-nav {
+    float: left;
+    margin: 0;
+}
+.app .topbar-right {
+    float: right !important;
+    margin-right: -15px;
+}
+.app .topbar-nav > li {
+    position: relative;
+    display: block;
+    float: left;
+}
+.app .topbar-nav > li > a {
+    position: relative;
+    display: block;
+    padding: 15px;
+    line-height: 10px;
+    color: #48c1bc;
+}
+.app .sk-layout__body {
+    margin: 0 auto;
+    max-width: 1000px;
+    min-width: 1000px;
+}
+.app .sk-layout__content {
+    display: flex;
+    flex-direction: column;
+    -webkit-box-flex: 1;
+    -webkit-flex: auto;
+    -ms-flex: auto;
+    flex: auto;
+    min-height: 600px;
+}
+.app .sk-layout__title {
+    text-align: center;
+    vertical-align: middle;
+    width: 100%;
+    margin: 20px auto !important;
+    font-size: 32px;
+    color: #7edfe6;
+}
+.app .sk-layout__title p{
+    margin:0;
+    padding:0;
+}
+.sk-filters-wraper {
+    margin: 0 auto;
+    padding: 5px;
+    border: 1px solid #efefef;
+    width: 968px;
+    padding: 10px;
+}
+.sk-filters-wraper ul.component-inline-wraper {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+}
+.sk-filters-wraper ul.component-inline-wraper li {
+    float: left;
+    position: relative;
+    display: block;
+    list-style: none;
+}
+.sk-filters-wraper .sk-panel {
+    margin-bottom: 5px;
+}
+.sk-filters-wraper .sk-panel.is-disabled,
+.sk-filters-wraper .sk-panel__content.is-collapsed {
+    display: block;
+}
+.sk-filters-wraper .sk-panel__header {
+    color: #666;
+}
+.sk-filters-wraper .sk-item-list-option{
+    display: -webkit-box;
+    display: -ms-flexbox;
+}
+.sk-filters-wraper .sk-select {
+    max-height: none;
+}
+.sk-filters-wraper .sk-range-input {
+    margin-top: 0;
+}
+.sk-filters-wraper .sk-range-input__input {
+    height: 32px;
+}
+.sk-refinement-list__view-more-action {
+    display: none;
+}
+.app .sk-select select {
+    font-weight: normal;
+    color: black;
+}
+.app .sk-range-input__submit {
+    display: none;
+}
+.app .sk-action-bar .sk-filter-group {
+    background-color: #f79b1f;
+    color: #fff;
+    line-height: 14px;
+}
+.app .sk-reset-filters {
+    color: #f79b1f;
+}
+.app .sk-layout__results {
+    border: 1px solid #efefef;
+    border-radius: 5px;
+}
+.sk-hits-list__item {
+    border-top: 1px dashed #ddd;
+    width: 100%;
+}
+.sk-hits-list__item:last-child {
+    border-bottom: 1px dashed #ddd;
+}
+.sk-hits-list-hit__title {
+    color: #666;
+    font-weight: bold;
+}
+.sk-hits-list-hit__details a:hover .sk-hits-list-hit__title {
+    color: #7edfe6;
+}
+.sk-hits-list-hit__details a:visited .sk-hits-list-hit__title {
+    color: #949494;
+}
+.app .sk-toggle-option.is-active {
+    background-color: #f79b1f;
+    border-color: #f79b1f;
+}
+.sk-hits-list__item {
+	margin-bottom: 0px;
+}
+/*去掉所有搜索框内部的"放大镜"*/
+.sk-input-filter__icon:before {
+    display: none;
+}
+/*保留模糊检索"放大镜"*/
+.dark_search .sk-input-filter__icon:before {
+    display: block;
+}
+/*把所有标题隐藏*/
+.sk-filters-wraper .sk-panel__header {
+    display: none;
+}
+/*自定义标题*/
+strong.title {
+    color: #666;
+    font-size: 14px;
+    font-weight: 700;
+    float: left;
+    line-height: 32px;
+}
+/*每一行*/
+.one_row,.two_row,.three_row,
+.four_row,.five_row {
+	height: 65px;
+	padding: 15px 10px 10px;
+}
+/*每一列*/
+.one_row span,.two_row span,
+.four_row span,.three_row span,
+.five_row span {
+	float: left;
+}
+/*每一行的输入框、下拉框浮动*/
+.sk-panel .sk-panel {
+	float: left;
+}
+/*最后一列右浮动*/
+.last .title,.last .component-inline-wraper {
+    float: right;
+}
+/*第一行和第二行的输入框、下拉框*/
+.one_row .sk-panel,
+.two_row .sk-panel {
+	width: 132px;
+}
+/*第一行的每一列*/
+.one_row span {
+    width: 23%;
+}
+/*学科领域*/
+.one_row span.three_col {
+	width: 54%;
+}
+/*中间下拉框*/
+.one_row span.three_col ul li.center {
+	margin: 0px 13px;
+}
+/*"所在大学排名"的输入框*/
+.two_row .one_col .sk-panel {
+    width: 165px;
+}
+/*所在大学排名和学科排名输入小框*/
+.two_row .one_col .sk-panel .sk-range-input__input,
+.three_row .two_col .sk-panel .sk-range-input__input {
+    width: 65px;    
+}
+/*目前工作地点的输入框*/
+.two_row .three_col .sk-panel {
+    width: 145px;
+}
+/*第三行位置*/
+.three_row {
+    position: relative;
+}
+.three_row span {
+    float: right;
+}
+/*"性别"和"姓名"的输入框*/
+.three_row .three_col .sk-panel,
+.three_row .four_col .sk-panel {
+    width: 100px;
+}
+/*学科排名输入框*/
+.three_row .two_col .sk-panel {
+    width: 160px;
+}
+/*年龄输入大框*/
+.three_row .one_col .sk-panel {
+    width: 140px;
+}
+/*年龄输入小框*/
+.three_row .one_col .sk-panel .sk-range-input__input {
+    width: 55px;
+}
+/*简历详细度、论文分区后面的选项按钮的大框*/
+.four_row ul.component-inline-wraper {
+    float: left;
+}
+/*论文分区的位置*/
+.four_row .two_col {
+    /*margin-left: 50px;*/
+   padding-top: 5px;
+}
+/*第四行的自定义标题*/
+.four_row strong.title {
+    line-height: 20px;
+}
+/*第四行复选框的固定宽度（避免数据变更的时候影响自身的宽度）*/
+.four_row .component-inline-wraper .sk-panel {
+	width: 80px;
+}
+/*第四行每个选项按钮间距*/
+.sk-filters-wraper .four_row ul.component-inline-wraper li {
+    margin: 0 5px;
+}
+/*第五行高度*/
+.five_row {
+    height: 100px;
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+.five_row div {
+    text-align: center;
+}
+/*第五行按钮*/
+.app .sk-btn {
+    outline:none;
+    line-height: 0px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    /*触摸操作*/
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    /*控制文本不被选中*/
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border-radius: 10px;
+    background: rgb(0,150,136);
+    width: 200px;
+    height: 30px;
+    border: 3px solid #e2f8f7;
+    box-shadow: 0 0 10px 0px gray;
+}
+/*搜索结果开始（排名根据部分）*/
+#ranking {
+    height: 33px;
+    line-height: 33px;
+    font-size: 15px;
+    color: gray;
+}
+/*去掉原来的margin*/
+.sk-action-bar-row {
+    margin: 0px;
+}
+/*全选、批量下载、导出表格所在大盒子*/
+.handle {
+    width: 100%;
+    padding-top: 25px;
+    font-size: 17px;
+    /*控制文本不被选中*/
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+/*全部浮动*/
+.handle span,
+.handle p,.handle img {
+    float: left;
+}
+/*鼠标悬停小手*/
+.handle span:nth-child(1) label,
+.handle .sk-reset-filters__reset {
+    cursor: pointer;
+}
+/*全选左浮动*/
+.handle span:nth-child(1) {
+    float: left;
+    line-height: 40px
+}
+/*操作右浮动*/
+.handle div:nth-child(3) {
+    float: right;
+    line-height: 40px
+}
+/*下载和导出、每条结果的编辑和下载公共部分*/
+.handle .download,
+.handle .export,
+.search_results li .edit,
+.search_results li .down_load  {
+    border-radius: 10px;
+    padding: 10px 15px;
+    height: 35px;
+    box-sizing: border-box;
+}
+/*图标微调*/
+.handle .download img,
+.handle .export img {
+    position: relative;
+    top: -4px;
+}
+/*检索、批量下载、导出、搜索结果的编辑和下载字体*/
+.sk-btn,
+.handle .download p,
+.handle .export p ,
+.search_results li .edit,
+.search_results li .down_load {
+    line-height: 15px;
+    color: #fff;
+    cursor: default;
+    font-size: 16px;
+}
+/*下载*/
+.handle .download {
+    background-color: rgb(96,145,191);
+}
+/*导出*/
+.handle .export {
+    margin-left: 25px;
+    background-color: rgb(118,166,122);
+}
+/*下拉菜单字体颜色*/
+.app .sk-filters-wraper .sk-select select {
+    color: #666;
+}
+/*清除筛选*/
+.handle .sk-action-bar-row {
+    display: inline-block;
+    /*margin-left: 15px;*/
+}
+/*标题前添加图片*/
+.sk-layout__title img,{
+    vertical-align: middle;
+}
+/*搜索结果部分（大家都浮动）*/
+.search_results li,
+.search_results li div,
+.search_results img{
+	float: left;
+}
+/*每一行*/
+.search_results li span {
+	display: inline-block;
+	padding: 2px 0px;
+	width: 100%;
+}
+/*大学时间排名左间距*/
+.search_results li span.world_ranking {
+	margin-left: 20px;
+}
+/*每一列*/
+.search_results li.one_col,
+.search_results li.two_col,
+.search_results li.three_col,
+.search_results li.four_col {
+	height: 100%;
+}
+/*第一列*/
+.search_results li.one_col {
+	/*width: 30%;*/
+	width: 48%;
+}
+/*第二列*/
+.search_results li.two_col {
+	/*width: 31%;*/
+	width: 32%;
+}
+/*第三列*/
+.search_results li.three_col {
+	width: 20%;
+}
+/*第四列*/
+.search_results li.four_col {
+	width: 19%;
+}
+/*第一行（姓名和复选框）*/
+.search_results div.name_one_row,
+.search_results div.name_one_row li {
+	width: 100%;
+	float: left;
+	line-height: 10px;
+    padding-bottom: 4px;
+}
+/*第一行（复选框和姓名）*/
+.search_results div.name_one_row input,
+.search_results div.name_one_row a {
+	float: left;
+}
+/*给没一行图片居中*/
+.search_results li img {
+	vertical-align: middle;
+}
+/*编辑*/
+.search_results li .edit {
+	background-color: rgb(209,122,102);
+	padding: 10px 20px;
+}
+/*下载*/
+.search_results li .down_load {
+	background-color: rgb(232,192,90);
+	padding: 10px 20px;
+	margin-left: 25px;
+}
+/*去掉搜索结果外面大盒子的padding*/
+.sk-hits-list-hit__details {
+	padding: 10px 0px;
+    /*white-space: nowrap;*/
+}
